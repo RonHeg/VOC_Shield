@@ -94,7 +94,7 @@ void loop() {
   Serial.println("Pa");
   Serial.print("Read temperature:");
   Serial.print(icp.getTemperature());
-  Serial.println("℃");
+  Serial.println(" ℃");
   Serial.print("Read altitude:");
   Serial.print(icp.getElevation());
   Serial.println("m");

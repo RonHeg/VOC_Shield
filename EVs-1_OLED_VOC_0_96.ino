@@ -1,4 +1,4 @@
-/*
+/*evs
 * EVs-1 Environmental Sensor PCB
 * This sketch initializes the SHT40, SGP40, and ICP-10111 sensors, reads data from them, 
 * and prints the values to the Serial Monitor. 
@@ -83,7 +83,7 @@ void loop() {
   u8g2.clearBuffer();					// clear the internal memory
   u8g2.setFont(u8g2_font_7x14B_tf);
   //u8g2.setFont(u8g2_font_t0_11_tf);
-  u8g2.drawStr(0,12, "EVs-1");
+  u8g2.drawStr(0,12, "SGP40 VOC Sensor");
   sensors_event_t humidity, temp;
   sht4.getEvent(&humidity, &temp);
   Serial.print("Temperature: ");
@@ -99,13 +99,14 @@ void loop() {
   u8g2.print(String(t) + "°F, RH " + String(h) + "%");
 
   // Read SGP40 data
-  uint16_t raw_index = sgp40.measureRaw();
+  uint16_t raw_index = sgp40.measureRaw(t, h);
   Serial.print("RAW Index: ");
   Serial.println(raw_index);
 
   voc_index = sgp40.measureVocIndex(t, h);
   Serial.print("Voc Index: ");
   Serial.println(voc_index);
+
 
   u8g2.setCursor(0,43);
   u8g2.print("VOC = " + String(voc_index));

@@ -9,7 +9,7 @@ Code examples are for a Seeed Studio XIAO ESP32C3.
 EVs-1_OLED_0_96.ino sends data thru the serial port at a baud rate of 115,200
 and also displays 4 lines on a 0.96" OLED display (please verify pinout, some OLED displays have Vcc and GND reversed).
 The display reads:
-	EVs-1
+	SGP40 VOC Sensor
 	78.23F, RH 48.00%
 	VOC = 94
 	28.97inHg
